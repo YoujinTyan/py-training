@@ -57,6 +57,24 @@
 Вы занимаетесь сборкой игрушечных машинок. Каждая машинка должна иметь четыре колеса, один корпус и две фигурки человечков внутри.
 Фнукция должна возвращать строку в виде машинки (многострочная строка)
 '''
+# def create_car():
+#     car = [
+               
+#           '┏┓|||| |||||',
+#            '┃┃╭┻┻━━━┻━┻┏┓',
+#            '┃┣╯┉┉╭━━┓╭┉┃┃',
+#         '┃┣╮┉┉╰━━┛╰┉┃┃',
+#          '┃┃╰┳┳━━━┳━┳┗┛',
+#          '┗┛|||| |||||'
+#     ]
+#     car = '\n'.join(car)
+#     return car
+
+
+# car = create_car()
+# print(car)
+    
+ 
 
 
 '''
@@ -119,3 +137,49 @@
 #   return password
 
 # print(random_password)
+
+
+import random
+
+def random_password():
+    password = ''
+    letters = 'qwertyuiopasdfghjklzxcvbnm'
+    numbers = '1234567890'
+    symbols = '!@#$%^&*-_'
+    len_password = random.randint(8, 15)  
+    isCorrect = [False, False, False, False]
+
+    while isCorrect != [True, True, True, True]:
+        for i in range(0, len_password+1):
+            elements = random.randint(1,4)
+
+            if elements == 1:
+                password += random.choice(numbers)
+
+            elif elements == 2:
+                password += random.choice(symbols)
+
+            elif elements == 3:
+                password += random.choice(letters.upper())
+
+            else:
+                password += random.choice(letters.lower())
+
+        print(password)
+
+        isCorrect = [False, False, False, False]
+
+        for let in password:
+            if let in letters.upper():
+                isCorrect[2] == True
+                
+            elif let in letters.lower():
+                isCorrect[3] == True
+
+            elif let in symbols:
+                isCorrect[1] == True
+
+            elif let in numbers:
+                isCorrect[0] == True
+
+        random_password()
